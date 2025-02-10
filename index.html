@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复杂布局示例</title>
+
+    <style>
+        /* 基本的全局样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex; /* 使用flexbox来简化布局 */
+            height: 100vh; /* 设置页面高度为视口高度 */
+        }
+
+        /* 左侧导航栏样式 */
+nav {
+    width: 250px; /* 设置导航栏的宽度 */
+    background-color: #333; /* 设置背景颜色为深灰色 */
+    color: white; /* 设置文字颜色为白色 */
+    padding: 20px; /* 内边距，给导航栏内部内容留出空白 */
+    display: flex; /* 使用 flexbox 布局 */
+    flex-direction: column; /* 设置内容按垂直方向排列 */
+    justify-content: space-between; /* 保证内容垂直分布，顶部、底部有空隙，中间部分内容自适应分布 */
+}
+
+
+        nav h2 {
+            text-align: center;
+            margin: 0 0 20px;
+        }
+/*该样式针对 nav 元素中的无序列表（ul）*/
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+/*nav ul li：该样式针对无序列表（<ul>）中的每一个列表项（<li>）。*/
+        nav ul li {
+            margin: 15px 0;
+        }
+/*该样式应用于导航栏中每个列表项内的 <a> 标签（即导航链接）*/
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* 右侧内容区域样式 */
+        main {
+            flex-grow: 1; /* 让右侧区域占据剩余空间 */
+            background-color: #f4f4f4; /* 设置背景颜色 */
+            padding: 20px;
+        }
+
+        main h1 {
+            color: #333;
+        }
+
+        main p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* 响应式设计，屏幕宽度小于 768px 时调整布局 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* 屏幕小于768px时，改为垂直布局 */
+            }
+
+            nav {
+                width: 100%; /* 导航栏宽度为100% */
+                height: auto; /* 使导航栏适应内容 */
+            }
+
+            main {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 左侧导航栏 --
+	<a href="#">：超链接标签，href="#" 是占位符，表示当前没有实际的链接地址，点击时不会跳转。>
+	
+    <nav>
+        <h2>网站导航</h2> <!-- 导航栏的标题 -->
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">服务</a></li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">博客</a></li>
+        </ul>
+        <footer>
+            <p>© 2024 公司名</p>
+        </footer>
+    </nav>
+
+    <!-- 右侧主内容区域 -->
+    <main>
+        <h1>欢迎访问我们的网站！</h1>
+        <p>这里是一个包含导航栏和主内容区域的示例页面。你可以在左侧导航栏中选择不同的链接，查看不同的内容。</p>
+        <p>使用这种布局，可以方便地将页面分为两部分，适用于大多数需要导航和详细内容显示的网页。</p>
+        <p>我们采用了Flexbox布局，使得页面可以自动调整布局，尤其在响应式设计方面，能够适应不同的屏幕大小。</p>
+    </main>
+
+</body>
+</html>
